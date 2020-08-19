@@ -12,12 +12,7 @@ class CoolPassGen:
         return "Pope"
     
     def passGen():
-        return adjectiveGen() + nounGen() + numberGen()
+        return CoolPassGen.adjectiveGen() + CoolPassGen.nounGen() + str(CoolPassGen.numberGen())
 
 class main:
-    pre = "key"
-    post = "john"
-    
-    print(CoolPassGen.numberGen())
-    
-    print(pre + post)
+    print(CoolPassGen.passGen())
