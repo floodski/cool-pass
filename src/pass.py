@@ -6,10 +6,10 @@ class CoolPassGen:
         return random.choice([69,420,666])
     
     def adjectiveGen():
-        return "Shitting"
+        return random.choice(["Shitting","Biting","Bending","Smirking"])
     
     def nounGen():
-        return "Pope"
+        return random.choice(["Pope","Baby","Lover","Fiend","Friend"])
     
     def passGen():
         return CoolPassGen.adjectiveGen() + CoolPassGen.nounGen() + str(CoolPassGen.numberGen())
