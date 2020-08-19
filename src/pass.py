@@ -18,6 +18,6 @@ class CoolPassGen():
     def index():
         return CoolPassGen.passGen(CoolPassGen)
 
-#print(CoolPassGen.passGen(CoolPassGen))
+
 if __name__ == '__main__':
     cherrypy.quickstart(CoolPassGen)
