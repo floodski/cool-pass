@@ -1,7 +1,7 @@
 import cherrypy
 import random
 
-class CoolPassGen(object):
+class CoolPassGen():
     def numberGen():
         return random.choice([69,420,666])
     
@@ -15,7 +15,9 @@ class CoolPassGen(object):
         return self.adjectiveGen() + self.nounGen() + str(self.numberGen())
 
     @cherrypy.expose
-    def index(self):
-        return self.passGen()
+    def index():
+        return CoolPassGen.passGen(CoolPassGen)
 
-print(CoolPassGen.passGen(CoolPassGen))
+#print(CoolPassGen.passGen(CoolPassGen))
+if __name__ == '__main__':
+    cherrypy.quickstart(CoolPassGen)
