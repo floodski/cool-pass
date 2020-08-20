@@ -2,7 +2,7 @@ import sys
 import cherrypy
 import random
 
-class CoolPassGen():
+class CoolPassGen(object):
     def numberGen():
         return random.choice([69,420,666])
     
@@ -16,16 +16,17 @@ class CoolPassGen():
         return self.adjectiveGen() + self.nounGen() + str(self.numberGen())
 
     @cherrypy.expose
-    def index():
+    @cherrypy.tools.response_headers(headers=[('Content-Type', 'text/plain')])
+    def index(self):
         return CoolPassGen.passGen(CoolPassGen)
         
 wsgi_app = cherrypy.Application(CoolPassGen(), '/')
 
 if __name__ == '__main__':
-	from wsgiref.simple_server import make_server
+    from wsgiref.simple_server import make_server
 
     #cherrypy.config.update( {'server.socket_host': '0.0.0.0'} )
-        
-	httpd = make_server('', 6600, wsgi_app)
-	httpd.serve_forever()
+    
+    httpd = make_server('', 6600, wsgi_app)
+    httpd.serve_forever()
 	
