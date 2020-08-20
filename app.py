@@ -33,7 +33,7 @@ wsgi_app = cherrypy.Application(CoolPassGen(), '/')
     
 def runMainApp():
     # Create an instance of MainApp and tell Cherrypy to send all requests under / to it. (ie all of them)
-    cherrypy.tree.mount(MainApp(), "/", conf)
+    cherrypy.tree.mount(CoolPassGen(), "/", conf)
 
     cherrypy.config.update(conf)
 
