@@ -1,3 +1,4 @@
+import sys
 import cherrypy
 import random
 
@@ -17,7 +18,14 @@ class CoolPassGen():
     @cherrypy.expose
     def index():
         return CoolPassGen.passGen(CoolPassGen)
-
+        
+wsgi_app = cherrypy.Application(CoolPassGen(), '/')
 
 if __name__ == '__main__':
-    cherrypy.quickstart(CoolPassGen)
+	from wsgiref.simple_server import make_server
+
+    #cherrypy.config.update( {'server.socket_host': '0.0.0.0'} )
+        
+	httpd = make_server('', 6600, wsgi_app)
+	httpd.serve_forever()
+	
