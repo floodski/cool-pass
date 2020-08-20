@@ -1,4 +1,11 @@
+#!usr/bin/python3
 import sys
+import os, os.path
+import cherrypy
+import random
+import string
+import sqlite3
+
 import cherrypy
 import random
 
