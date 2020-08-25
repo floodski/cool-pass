@@ -20,11 +20,11 @@ class CoolPassGen(object):
         return random.choice(["Pope","Baby","Lover","Micky","Friend", "Cougar"])
     
     def passGen():
-        return self.adjectiveGen() + self.nounGen() + str(self.numberGen())
+        return CoolPassGen.adjectiveGen() + CoolPassGen.nounGen() + str(CoolPassGen.numberGen())
 
     @app.route("/")
     def index():
-        return CoolPassGen.passGen(CoolPassGen)
+        return CoolPassGen.passGen()
 
     
 '''def runMainApp():
