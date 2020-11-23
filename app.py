@@ -35,13 +35,13 @@ class CoolPassGen(object):
         return str(CoolPassGen.adjectiveGen()) + str(CoolPassGen.nounGen()) + str(CoolPassGen.numberGen())
 
     @app.route("/")
-    def index(string):
+    def index():
         dipshitMode = False
         return CoolPassGen.passGen()
         #print(CoolPassGen.passGen())
     
     @app.route("/stupid")
-    def index2(string):
+    def index2():
         dipshitMode = True
         return CoolPassGen.passGen()
         #print(CoolPassGen.passGen())
