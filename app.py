@@ -25,6 +25,7 @@ class CoolPassGen(object):
     @app.route("/")
     def index():
         return CoolPassGen.passGen()
-
-
-	
+    
+    @app.route("/stupid")
+    def index():
+        return CoolPassGen.passGen()
