@@ -36,16 +36,16 @@ class CoolPassGen(object):
 
     @app.route("/")
     def index():
-        dipshitMode = False
+        CoolPassGen.dipshitMode = False
         return CoolPassGen.passGen()
         #print(CoolPassGen.passGen())
     
     @app.route("/stupid")
     def index2():
-        dipshitMode = True
+        CoolPassGen.dipshitMode = True
         return CoolPassGen.passGen()
         #print(CoolPassGen.passGen())
 
 '''    
-CoolPassGen.index("ok")
-CoolPassGen.index2("dumb")'''
+CoolPassGen.index()
+CoolPassGen.index2()'''
