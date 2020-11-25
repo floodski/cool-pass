@@ -15,21 +15,22 @@ class CoolPassGen(object):
     
     def numberGen():
         if(CoolPassGen.dipshitMode):
-            return random.choice([69,420,666])
+            return random.choice([69,420,666,369,808])
         
-        return random.choice(["777","22"])
+        #return random.choice(["777","22"])
+        return random.randint(10,999)
     
     def adjectiveGen():
         if(CoolPassGen.dipshitMode):
-            return random.choice(["Shitting","Biting","Bending","Smirking","Damp","Hungry"])
+            return random.choice(["Unrepentant","Remorseless","Raw","Shitting","Biting","Bending","Smirking","Damp","Hungry","Commie","Devious","Drunk"])
         
         return random.choice(["Lovely","Kind"])
     
     def nounGen():
         if(CoolPassGen.dipshitMode):
-            return random.choice(["Pope","Baby","Lover","Micky","Friend", "Cougar"])
+            return random.choice(["JohnLennon","Pope","Baby","Lover","Micky","Friend", "Cougar"])
         
-        return random.choice(["Ducky","Puppy"])
+        return random.choice(["Ducky","Puppy","Seahorse","Dandelion"])
     
     def passGen():
         return str(CoolPassGen.adjectiveGen()) + str(CoolPassGen.nounGen()) + str(CoolPassGen.numberGen())
