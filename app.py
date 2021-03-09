@@ -14,16 +14,16 @@ class CoolPassGen(object):
     dipshitMode = False
 
     with open("CA.txt", 'r') as reader:
-        outAdjects = [x.rstrip() for x in reader]
+        CleanAdjects = [x.rstrip() for x in reader]
 
     with open("CN.txt", 'r') as reader:
-        outNouns = [x.rstrip() for x in reader]
+        CleanNouns = [x.rstrip() for x in reader]
 
-#    with open("CA.txt", 'r') as reader:
-#        outAdjects = [x.rstrip() for x in reader]
+    with open("SA.txt", 'r') as reader:
+        StupidAdjects = [x.rstrip() for x in reader]
 
-#    with open("CA.txt", 'r') as reader:
-#        outAdjects = [x.rstrip() for x in reader]
+    with open("SN.txt", 'r') as reader:
+        StupidNouns = [x.rstrip() for x in reader]
 
     
     def numberGen():
@@ -35,35 +35,37 @@ class CoolPassGen(object):
     
     def adjectiveGen():
         if(CoolPassGen.dipshitMode):
-            return random.choice(["Unrepentant","Remorseless","Raw","Shitting","Biting","Bending","Smirking","Damp","Hungry","Commie","Devious","Drunk"])
+            #return random.choice(["Unrepentant","Remorseless","Raw","Shitting","Biting","Bending","Smirking","Damp","Hungry","Commie","Devious","Drunk"])
+            return CoolPassGen.StupidAdjects[random.randint(0,(len(CoolPassGen.StupidAdjects)-1))]
         
         #return random.choice(["Lovely","Kind"])
-        return CoolPassGen.outAdjects[random.randint(0,(len(CoolPassGen.outAdjects)-1))]
+        return CoolPassGen.CleanAdjects[random.randint(0,(len(CoolPassGen.CleanAdjects)-1))]
     
     def nounGen():
         if(CoolPassGen.dipshitMode):
-            return random.choice(["JohnLennon","Pope","Baby","Lover","Micky","Friend", "Cougar"])
+            #return random.choice(["JohnLennon","Pope","Baby","Lover","Micky","Friend", "Cougar"])
+            return CoolPassGen.StupidNouns[random.randint(0,(len(CoolPassGen.StupidNouns)-1))]
         
         #return random.choice(["Ducky","Puppy","Seahorse","Dandelion"])
-        return CoolPassGen.outNouns[random.randint(0,(len(CoolPassGen.outNouns)-1))]
+        return CoolPassGen.CleanNouns[random.randint(0,(len(CoolPassGen.CleanNouns)-1))]
     
     def passGen():
-        #print(CoolPassGen.outAdjects)
+        #print(CoolPassGen.CleanAdjects)
         return str(CoolPassGen.adjectiveGen()) + str(CoolPassGen.nounGen()) + str(CoolPassGen.numberGen())
 
     @app.route("/")
     def index():
         CoolPassGen.dipshitMode = False
-        #return CoolPassGen.passGen()
+        return CoolPassGen.passGen()
         print(CoolPassGen.passGen())
-        #print(CoolPassGen.outAdjects)
+        print(CoolPassGen.CleanAdjects)
     
     @app.route("/stupid")
     def index2():
         CoolPassGen.dipshitMode = True
-        #return CoolPassGen.passGen()
+        return CoolPassGen.passGen()
         print(CoolPassGen.passGen())
 
-    
+'''
 CoolPassGen.index()
-CoolPassGen.index2()
+CoolPassGen.index2()'''
