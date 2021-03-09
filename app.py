@@ -2,10 +2,6 @@
 import sys
 from flask import Flask
 import random
-import sqlite3
-
-import cherrypy
-import random
 
 app = Flask(__name__)
 
@@ -57,14 +53,14 @@ class CoolPassGen(object):
     def index():
         CoolPassGen.dipshitMode = False
         return CoolPassGen.passGen()
-        print(CoolPassGen.passGen())
-        print(CoolPassGen.CleanAdjects)
+        #print(CoolPassGen.passGen())
+        #print(CoolPassGen.CleanAdjects)
     
     @app.route("/stupid")
     def index2():
         CoolPassGen.dipshitMode = True
         return CoolPassGen.passGen()
-        print(CoolPassGen.passGen())
+        #print(CoolPassGen.passGen())
 
 '''
 CoolPassGen.index()
