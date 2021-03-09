@@ -16,6 +16,15 @@ class CoolPassGen(object):
     with open("CA.txt", 'r') as reader:
         outAdjects = [x.rstrip() for x in reader]
 
+    with open("CN.txt", 'r') as reader:
+        outNouns = [x.rstrip() for x in reader]
+
+#    with open("CA.txt", 'r') as reader:
+#        outAdjects = [x.rstrip() for x in reader]
+
+#    with open("CA.txt", 'r') as reader:
+#        outAdjects = [x.rstrip() for x in reader]
+
     
     def numberGen():
         if(CoolPassGen.dipshitMode):
@@ -35,9 +44,11 @@ class CoolPassGen(object):
         if(CoolPassGen.dipshitMode):
             return random.choice(["JohnLennon","Pope","Baby","Lover","Micky","Friend", "Cougar"])
         
-        return random.choice(["Ducky","Puppy","Seahorse","Dandelion"])
+        #return random.choice(["Ducky","Puppy","Seahorse","Dandelion"])
+        return CoolPassGen.outNouns[random.randint(0,(len(CoolPassGen.outNouns)-1))]
     
     def passGen():
+        #print(CoolPassGen.outAdjects)
         return str(CoolPassGen.adjectiveGen()) + str(CoolPassGen.nounGen()) + str(CoolPassGen.numberGen())
 
     @app.route("/")
