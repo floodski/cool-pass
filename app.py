@@ -12,6 +12,10 @@ app = Flask(__name__)
 class CoolPassGen(object):
     
     dipshitMode = False
+
+    with open("CA.txt", 'r') as reader:
+        outAdjects = [x.rstrip() for x in reader]
+
     
     def numberGen():
         if(CoolPassGen.dipshitMode):
@@ -24,7 +28,8 @@ class CoolPassGen(object):
         if(CoolPassGen.dipshitMode):
             return random.choice(["Unrepentant","Remorseless","Raw","Shitting","Biting","Bending","Smirking","Damp","Hungry","Commie","Devious","Drunk"])
         
-        return random.choice(["Lovely","Kind"])
+        #return random.choice(["Lovely","Kind"])
+        return CoolPassGen.outAdjects[random.randint(0,(len(CoolPassGen.outAdjects)-1))]
     
     def nounGen():
         if(CoolPassGen.dipshitMode):
@@ -38,15 +43,16 @@ class CoolPassGen(object):
     @app.route("/")
     def index():
         CoolPassGen.dipshitMode = False
-        return CoolPassGen.passGen()
-        #print(CoolPassGen.passGen())
+        #return CoolPassGen.passGen()
+        print(CoolPassGen.passGen())
+        #print(CoolPassGen.outAdjects)
     
     @app.route("/stupid")
     def index2():
         CoolPassGen.dipshitMode = True
-        return CoolPassGen.passGen()
-        #print(CoolPassGen.passGen())
+        #return CoolPassGen.passGen()
+        print(CoolPassGen.passGen())
 
-'''    
+    
 CoolPassGen.index()
-CoolPassGen.index2()'''
+CoolPassGen.index2()
