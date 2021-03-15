@@ -14,3 +14,5 @@ Girl
 Child
 Dad
 Mum
+Walrus
+Chilli
