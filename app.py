@@ -1,72 +1,28 @@
 #!usr/bin/python3
 import sys
-from flask import Flask
+from flask import Flask,render_template
+from passgen import CoolPassGen
 import random
 
 app = Flask(__name__)
 
-class CoolPassGen(object):
-    
-    dipshitMode = False
-
-    with open("CA.txt", 'r') as reader:
-        CleanAdjects = [x.rstrip() for x in reader]
-
-    with open("CN.txt", 'r') as reader:
-        CleanNouns = [x.rstrip() for x in reader]
-
-    with open("SA.txt", 'r') as reader:
-        StupidAdjects = [x.rstrip() for x in reader]
-
-    with open("SN.txt", 'r') as reader:
-        StupidNouns = [x.rstrip() for x in reader]
-
-    
-    def numberGen():
-        if(CoolPassGen.dipshitMode):
-            return random.choice([69,420,666,369,808])
-        
-        #return random.choice(["777","22"])
-        return random.randint(10,999)
-    
-    def adjectiveGen():
-        if(CoolPassGen.dipshitMode):
-            #return random.choice(["Unrepentant","Remorseless","Raw","Shitting","Biting","Bending","Smirking","Damp","Hungry","Commie","Devious","Drunk"])
-            return CoolPassGen.StupidAdjects[random.randint(0,(len(CoolPassGen.StupidAdjects)-1))]
-        
-        #return random.choice(["Lovely","Kind"])
-        return CoolPassGen.CleanAdjects[random.randint(0,(len(CoolPassGen.CleanAdjects)-1))]
-    
-    def nounGen():
-        if(CoolPassGen.dipshitMode):
-            #return random.choice(["JohnLennon","Pope","Baby","Lover","Micky","Friend", "Cougar"])
-            return CoolPassGen.StupidNouns[random.randint(0,(len(CoolPassGen.StupidNouns)-1))]
-        
-        #return random.choice(["Ducky","Puppy","Seahorse","Dandelion"])
-        return CoolPassGen.CleanNouns[random.randint(0,(len(CoolPassGen.CleanNouns)-1))]
-    
-    def passGen():
-        #print(CoolPassGen.CleanAdjects)
-        return str(CoolPassGen.adjectiveGen()) + str(CoolPassGen.nounGen()) + str(CoolPassGen.numberGen())
+class View(object):
 
     @app.route("/")
     def index():
-        CoolPassGen.dipshitMode = False
-        return CoolPassGen.passGen()
-        #print(CoolPassGen.passGen())
-        #print(CoolPassGen.CleanAdjects)
+        View.dipshitMode = False
+        out = str(CoolPassGen)
+        print (out)
+        return out
+        #return render_template('hello.html')
     
     @app.route("/stupid")
     def stupid():
-        CoolPassGen.dipshitMode = True
-        return CoolPassGen.passGen()
-        #print(CoolPassGen.passGen())
+        View.dipshitMode = True
+        return View.passGen()
+        #print(View.passGen())
 
     @app.route("/navyseal")
     def navy():
-        CoolPassGen.dipshitMode = False
+        View.dipshitMode = False
         return str("What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and I've been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You're fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that's just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little \"clever\" comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn't, you didn't, and now you're paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're fucking dead, kiddo")
-
-'''
-CoolPassGen.index()
-CoolPassGen.index2()'''
