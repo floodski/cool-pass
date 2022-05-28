@@ -6,7 +6,7 @@ import random
 app = Flask(__name__)
 
 class CoolPassGen(object):
-    
+    Test
     dipshitMode = False
 
     with open("CA.txt", 'r') as reader:
