@@ -5,6 +5,18 @@
 body{
   min-height:100vh;
   font-family: 'Raleway', sans-serif;
+
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .container{
@@ -44,6 +56,17 @@ body{
     opacity:0.65;
     transition-delay:0.2s;
   }
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .top{
