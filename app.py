@@ -57,6 +57,7 @@ class CoolPassGen(object):
         #print(CoolPassGen.CleanAdjects)'''
     @app.route('/')
     def index():
+        CoolPassGen.dipshitMode = False
         passout = CoolPassGen.passGen()
         return render_template('index.html', passout=passout)
     
