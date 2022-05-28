@@ -63,8 +63,8 @@ class CoolPassGen(object):
     @app.route("/stupid")
     def stupid():
         CoolPassGen.dipshitMode = True
-        return CoolPassGen.passGen()
-        #print(CoolPassGen.passGen())
+        passout = CoolPassGen.passGen()
+        return render_template('index.html', passout=passout)
 
     @app.route("/navyseal")
     def navy():
