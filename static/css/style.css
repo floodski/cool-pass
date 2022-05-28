@@ -12,6 +12,16 @@
   justify-content: center;
 }
 
+.text {
+  text-align: center;
+}
+
+.navy {
+    background-image: url("/static/images/navy.png");
+    background-color: #cccccc;
+    color: white;
+
+}
 
 .button {
   background-color: #4CAF50; /* Green */
