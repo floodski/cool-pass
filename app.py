@@ -1,12 +1,12 @@
 #!usr/bin/python3
 import sys
-from flask import Flask
+from flask import Flask, render_template
 import random
 
 app = Flask(__name__)
 
 class CoolPassGen(object):
-    Test
+
     dipshitMode = False
 
     with open("CA.txt", 'r') as reader:
@@ -49,12 +49,16 @@ class CoolPassGen(object):
         #print(CoolPassGen.CleanAdjects)
         return str(CoolPassGen.adjectiveGen()) + str(CoolPassGen.nounGen()) + str(CoolPassGen.numberGen())
 
-    @app.route("/")
+    '''@app.route("/")
     def index():
         CoolPassGen.dipshitMode = False
         return CoolPassGen.passGen()
         #print(CoolPassGen.passGen())
-        #print(CoolPassGen.CleanAdjects)
+        #print(CoolPassGen.CleanAdjects)'''
+    @app.route('/')
+    def index():
+        passout = CoolPassGen.passGen()
+        return render_template('index.html', passout=passout)
     
     @app.route("/stupid")
     def stupid():
